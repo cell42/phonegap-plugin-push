@@ -323,7 +323,13 @@ public class FCMService extends FirebaseMessagingService implements PushConstant
     String message = extras.getString(MESSAGE);
     String title = extras.getString(TITLE);
     String contentAvailable = extras.getString(CONTENT_AVAILABLE);
+    if (!"0".equals(contentAvailable)) {
+      contentAvailable = "1";
+    }
     String forceStart = extras.getString(FORCE_START);
+    if (!"0".equals(forceStart)) {
+      forceStart = "1";
+    }
     int badgeCount = extractBadgeCount(extras);
     if (badgeCount >= 0) {
       Log.d(LOG_TAG, "count =[" + badgeCount + "]");
