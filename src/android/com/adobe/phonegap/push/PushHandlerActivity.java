@@ -40,6 +40,8 @@ public class PushHandlerActivity extends Activity implements PushConstants {
         if(!startOnBackground){
             NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.cancel(FCMService.getAppName(this), notId);
+        } else {
+            moveTaskToBack(true);
         }
 
         boolean isPushPluginActive = PushPlugin.isActive();
